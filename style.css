@@ -1,7 +1,3 @@
-* {
-  font-family: "Chewy", system-ui;
-}
-
 /* variables, thank u yt tuts for helping me :D*/
 :root {
   --mint: #bcf4de;
@@ -11,7 +7,16 @@
   --pink: #dc6579;
   --dark-text: #5a5552;
 }
-
+.brand-font {
+  font-family: "Chewy", system-ui;
+}
+.container h1 {
+  font-family: "Chewy", system-ui;
+}
+.container p,
+.container a {
+  font-family: "Lato", sans-serif;
+}
 body {
   background-color: var(--mint);
   color: var(--dark-text);
@@ -38,12 +43,10 @@ body {
   border-radius: 50px;
   padding: 12px 30px;
   border: none;
-  box-shadow: 0 4px 15px rgba(255, 183, 195, 0.4);
 }
 
 .btn-bunny:hover {
   background-color: var(--rose);
-  color: white;
   transform: translateY(-2px);
 }
 #about1 {
@@ -51,6 +54,7 @@ body {
   border: 2px var(--pink) dotted;
   margin: 100px;
   padding: 70px;
+  background-color: var(--rose);
 }
 #btn-back-to-top {
   position: fixed;
