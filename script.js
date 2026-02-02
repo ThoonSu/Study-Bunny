@@ -1,17 +1,3 @@
-// Greeting
-console.log("🐰 BunnyBurrow Landing Page Loaded");
-
-//If the user already has a bunny, change the button text
-window.onload = () => {
-  const savedBunny = localStorage.getItem("bunnyName");
-  const heroBtn = document.querySelector(".btn-bunny");
-
-  if (savedBunny && heroBtn) {
-    heroBtn.innerText = "Visit " + savedBunny;
-    heroBtn.href = "dashboard.html"; // Redirect to a dashboard instead of creator
-  }
-};
-// Wait for the DOM to be fully loaded
 document.addEventListener("DOMContentLoaded", function () {
   const backToTopButton = document.getElementById("btn-back-to-top");
 
