@@ -6,6 +6,38 @@
   --pink: #dc6579;
   --dark-text: #5a5552;
 }
+
+body,
+button,
+input,
+select,
+textarea,
+.nav-link,
+.btn,
+.form-control {
+  font-family: "Lato", sans-serif !important;
+  color: var(--dark-text);
+}
+
+/* Keep the bubbly font only for headings/branding */
+.brand-font,
+h1,
+h2,
+h3,
+.navbar-brand {
+  font-family: "Chewy", cursive !important;
+}
+
+/* General Layout Fix for Footer */
+body {
+  display: flex;
+  flex-direction: column;
+  min-height: 100vh;
+}
+
+footer {
+  margin-top: auto;
+}
 .brand-font {
   font-family: "Chewy", system-ui;
 }
