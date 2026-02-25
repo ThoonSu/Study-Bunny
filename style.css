@@ -79,3 +79,138 @@ body {
 #btn-back-to-top i {
   margin: 0;
 }
+
+.timer-body {
+  background-color: var(--mint);
+  height: 100vh;
+}
+
+.timer-container {
+  background: white;
+  padding: 3rem;
+  border-radius: 40px;
+  border: 8px solid var(--rose);
+  max-width: 500px;
+  margin: 0 auto;
+}
+
+.timer-display {
+  font-size: 6rem;
+  font-weight: bold;
+  font-family: "Chewy", cursive;
+  color: var(--dark-text);
+  text-shadow: 2px 2px var(--rose);
+}
+
+.progress {
+  background-color: var(--taupe);
+  border: 2px solid var(--rose);
+}
+
+.flashcard-body {
+  background-color: var(--mint);
+  min-height: 100vh;
+}
+
+/* 3D Flip Animation Logic */
+.flashcard {
+  width: 100%;
+  max-width: 500px;
+  height: 300px;
+  perspective: 1000px;
+  cursor: pointer;
+}
+
+.flashcard-inner {
+  position: relative;
+  width: 100%;
+  height: 100%;
+  text-align: center;
+  transition: transform 0.6s;
+  transform-style: preserve-3d;
+}
+
+.flashcard.flipped .flashcard-inner {
+  transform: rotateY(180deg);
+}
+
+.flashcard-front,
+.flashcard-back {
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  backface-visibility: hidden;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  padding: 20px;
+  border-radius: 30px;
+  font-size: 1.5rem;
+  box-shadow: 0 10px 20px rgba(0, 0, 0, 0.1);
+}
+
+.flashcard-front {
+  background-color: white;
+  border: 6px solid var(--rose);
+  color: var(--dark-text);
+}
+
+.flashcard-back {
+  background-color: var(--pink);
+  color: white;
+  transform: rotateY(180deg);
+  border: 6px solid white;
+}
+
+#header {
+  margin: 100px;
+}
+/* Footer Styles */
+.custom-footer {
+  background-color: white;
+  border-top: 6px solid var(--rose);
+  padding: 3rem 0;
+  margin-top: 5rem;
+  color: var(--dark-text);
+}
+
+.footer-logo {
+  font-family: "Chewy", cursive;
+  font-size: 1.5rem;
+  color: var(--pink);
+  text-decoration: none;
+}
+
+.footer-link {
+  color: var(--taupe);
+  text-decoration: none;
+  transition: color 0.3s;
+  font-weight: 500;
+}
+
+.footer-link:hover {
+  color: var(--pink);
+}
+
+.social-icons i {
+  font-size: 1.5rem;
+  margin: 0 10px;
+  color: var(--sage);
+  transition: transform 0.3s;
+}
+
+.social-icons i:hover {
+  transform: scale(1.2);
+  color: var(--pink);
+}
+body {
+  display: flex;
+  flex-direction: column;
+  min-height: 100vh;
+}
+
+footer {
+  margin-top: auto;
+  /* puts the footer to the bottom */
+}

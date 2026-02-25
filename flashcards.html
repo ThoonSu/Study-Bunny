@@ -1,0 +1,178 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Flashcards</title>
+    <link
+      href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css"
+      rel="stylesheet"
+    />
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.6.0/css/all.min.css"
+    />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Chewy&family=Lato:wght@400;700&display=swap"
+      rel="stylesheet"
+    />
+    <link rel="shortcut icon" href="images/icon.png" type="image/x-icon" />
+    <link rel="stylesheet" href="style.css" />
+  </head>
+  <body class="flashcard-body">
+    <nav class="navbar custom-nav sticky-top">
+      <div class="container">
+        <a class="navbar-brand d-flex align-items-center" href="index.html">
+          <img src="images/icon.png" alt="Logo" width="40" class="me-2" />
+          <span class="brand-font">Study Bunny</span>
+        </a>
+      </div>
+    </nav>
+
+    <header class="hero-section d-flex align-items-center py-5">
+      <div class="container-lg">
+        <div class="row align-items-center">
+          <div class="col-lg-6 text-center text-lg-start pe-lg-5">
+            <h1 class="display-3 brand-font">
+              Master Your <span class="text-pink">Carrot Cards</span>
+            </h1>
+            <p class="lead mt-3">
+              Welcome to your personal study deck! Here, you can break down
+              complex topics into bite-sized pieces. Simply add a question and
+              an answer to create a new card.
+            </p>
+            <a
+              href="#study-zone"
+              class="btn btn-bunny btn-lg mt-3 rounded-pill px-5"
+              >Start Studying ↓</a
+            >
+          </div>
+          <div class="col-lg-6 text-center mt-5 mt-lg-0">
+            <img
+              src="images/gif2.gif"
+              alt="Bunny Studying GIF"
+              class="img-fluid rounded-5"
+              style="max-height: 350px"
+            />
+          </div>
+        </div>
+      </div>
+    </header>
+
+    <div class="container-lg mt-5 py-5" id="study-zone">
+      <div class="row gx-5">
+        <div class="col-md-5 col-lg-4 mb-4">
+          <div
+            class="card p-4 shadow-sm border-0 rounded-4 sticky-md-top"
+            style="top: 100px"
+          >
+            <h3 class="brand-font text-center mb-3">New Carrot Card</h3>
+            <div class="mb-3">
+              <label class="form-label fw-bold">Question</label>
+              <textarea
+                id="question"
+                class="form-control rounded-3"
+                rows="3"
+                placeholder="Enter question..."
+              ></textarea>
+            </div>
+            <div class="mb-3">
+              <label class="form-label fw-bold">Answer</label>
+              <textarea
+                id="answer"
+                class="form-control rounded-3"
+                rows="3"
+                placeholder="Enter answer..."
+              ></textarea>
+            </div>
+            <button id="add-card-btn" class="btn btn-bunny w-100 py-2 fw-bold">
+              Add to Deck
+            </button>
+          </div>
+        </div>
+
+        <div class="col-md-7 col-lg-8">
+          <div
+            id="card-container"
+            class="d-flex flex-column align-items-center"
+          >
+            <div class="flashcard" id="flashcard">
+              <div class="flashcard-inner">
+                <div class="flashcard-front">
+                  <p id="display-q">Your deck is empty! Add a card to start.</p>
+                  <small class="text-muted mt-auto">Click to flip</small>
+                </div>
+                <div class="flashcard-back">
+                  <p id="display-a">Click "Add to Deck" on the left!</p>
+                  <small class="text-white mt-auto">Click to flip back</small>
+                </div>
+              </div>
+            </div>
+
+            <div class="mt-5 d-flex gap-4">
+              <button
+                class="btn btn-outline-dark rounded-circle p-3"
+                id="prev-btn"
+                style="width: 60px; height: 60px"
+              >
+                <i class="fas fa-chevron-left"></i>
+              </button>
+              <span id="card-count" class="align-self-center fw-bold fs-3"
+                >0 / 0</span
+              >
+              <button
+                class="btn btn-outline-dark rounded-circle p-3"
+                id="next-btn"
+                style="width: 60px; height: 60px"
+              >
+                <i class="fas fa-chevron-right"></i>
+              </button>
+            </div>
+            <button
+              class="btn btn-sm btn-link text-danger mt-4 text-decoration-none"
+              id="clear-btn"
+            >
+              Clear All Cards
+            </button>
+          </div>
+        </div>
+      </div>
+    </div>
+    <footer class="custom-footer">
+      <div class="container">
+        <div class="row align-items-center">
+          <div class="col-md-4 text-center text-md-start mb-4 mb-md-0">
+            <a href="index.html" class="footer-logo">
+              <img src="images/icon.png" alt="Logo" width="30" class="me-2" />
+              Study Bunny
+            </a>
+            <p class="small mt-2">
+              Making study time a little more "hoppy" since 2024.
+            </p>
+          </div>
+
+          <div class="col-md-4 text-center mb-4 mb-md-0">
+            <div class="d-flex justify-content-center gap-3">
+              <a href="index.html" class="footer-link">Home</a>
+              <a href="flashcards.html" class="footer-link">Cards</a>
+              <a href="avatar.html" class="footer-link">Avatar</a>
+            </div>
+          </div>
+
+          <div class="col-md-4 text-center text-md-end">
+            <div class="social-icons mb-2">
+              <a href="#"><i class="fab fa-instagram"></i></a>
+              <a href="#"><i class="fab fa-tiktok"></i></a>
+              <a href="#"><i class="fab fa-github"></i></a>
+            </div>
+            <p class="small mb-0">
+              &copy; <span id="year"></span> BunnyBurrow. Created with Love and
+              Carrots.
+            </p>
+          </div>
+        </div>
+      </div>
+    </footer>
+    <script src="script.js"></script>
+  </body>
+</html>
