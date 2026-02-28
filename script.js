@@ -85,37 +85,86 @@ document.addEventListener("DOMContentLoaded", function () {
 // Initialize
 updateCard();
 
-// --- PROTECTION LOGIC ---
-const protectedLinks = document.querySelectorAll(".protected-link");
+// --- NAVBAR UPDATE ---
+// Function to ensure we only run code once the page is ready
+document.addEventListener("DOMContentLoaded", () => {
+  console.log("Bunny Closet Loaded!");
 
-protectedLinks.forEach((link) => {
-  link.addEventListener("click", function (e) {
-    const isSignedIn = localStorage.getItem("bunnyName");
+  // 1. DATA RETRIEVAL: Get info from LocalStorage
+  const userName = localStorage.getItem("bunnyName");
+  const savedClothes = localStorage.getItem("savedClothes");
+  const savedHat = localStorage.getItem("savedHat");
 
-    if (!isSignedIn) {
-      e.preventDefault(); // Stop the link from opening
-      alert("Oops! You need to hop into your account first. 🐰");
-      window.location.href = "signin.html";
-    }
-  });
+  // 2. APPLY NAME: If no name exists, they shouldn't be here!
+  const greetingElement = document.getElementById("greeting");
+  if (userName) {
+    greetingElement.innerText = `Hello, ${userName}!`;
+  } else {
+    greetingElement.innerText = "Hello, Anonymous Bunny!";
+  }
+
+  // 3. APPLY SAVED LOOK: Load images back onto the bunny
+  if (savedClothes && savedClothes !== window.location.href) {
+    const clothesImg = document.getElementById("clothes-layer");
+    clothesImg.src = savedClothes;
+    clothesImg.style.opacity = "1";
+  }
+
+  if (savedHat && savedHat !== window.location.href) {
+    const hatImg = document.getElementById("hat-layer");
+    hatImg.src = savedHat;
+    hatImg.style.opacity = "1";
+  }
 });
 
-// --- NAVBAR UPDATE ---
-window.onload = () => {
-  const user = localStorage.getItem("bunnyName");
-  const loginBtn = document.getElementById("login-nav-btn");
+/**
+ * Changes what category is visible in the closet
+ */
+function showCategory(cat) {
+  // Hide all categories
+  document.getElementById("clothes-options").classList.add("d-none");
+  document.getElementById("hats-options").classList.add("d-none");
 
-  if (user && loginBtn) {
-    loginBtn.innerText = "Log Out";
-    loginBtn.addEventListener("click", (e) => {
-      e.preventDefault();
-      localStorage.removeItem("bunnyName");
-      window.location.reload();
-    });
+  // Show the selected one
+  const selected = document.getElementById(cat + "-options");
+  if (selected) selected.classList.remove("d-none");
+
+  // Update active tab styling
+  document
+    .querySelectorAll("#closetTabs .nav-link")
+    .forEach((btn) => btn.classList.remove("active"));
+  if (event) event.target.classList.add("active");
+}
+
+/**
+ * Places the item on the bunny
+ */
+function setLayer(layer, imgSrc) {
+  const imgElement = document.getElementById(layer + "-layer");
+
+  if (imgSrc === "" || !imgSrc) {
+    imgElement.src = "";
+    imgElement.style.opacity = "0";
+  } else {
+    imgElement.src = imgSrc;
+    imgElement.style.opacity = "1";
   }
-  // year
-  const yearSpan = document.getElementById("year");
-  if (yearSpan) {
-    yearSpan.textContent = new Date().getFullYear();
-  }
-};
+}
+
+/**
+ * Saves the current look to LocalStorage
+ */
+function saveBunny() {
+  const clothesSrc = document.getElementById("clothes-layer").src;
+  const hatSrc = document.getElementById("hat-layer").src;
+
+  // We only save if there is actually an image source present
+  // (Filtering out the current page URL which browsers sometimes return for empty srcs)
+  const validClothes = clothesSrc.includes("images/") ? clothesSrc : "";
+  const validHat = hatSrc.includes("images/") ? hatSrc : "";
+
+  localStorage.setItem("savedClothes", validClothes);
+  localStorage.setItem("savedHat", validHat);
+
+  alert("Look saved! Your bunny is ready for study time. ");
+}

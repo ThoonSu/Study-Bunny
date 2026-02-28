@@ -246,3 +246,101 @@ footer {
   margin-top: auto;
   /* puts the footer to the bottom */
 }
+/* About Page Specific Styles */
+.about-hero {
+  background: linear-gradient(180deg, var(--mint) 0%, #f8f9fa 100%);
+}
+
+.about-card {
+  transition: all 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275); /* Smooth "Bouncy" effect */
+  border-bottom: 8px solid transparent !important;
+}
+
+/* This is the part that makes all cards behave like the student card */
+.about-card:hover {
+  transform: translateY(-15px); /* Pops up */
+  border-bottom: 8px solid var(--pink) !important; /* Highlights with Pink */
+  box-shadow: 0 20px 40px rgba(255, 143, 163, 0.15) !important; /* Soft Pink Glow */
+}
+
+/* Icon change on hover */
+.about-card:hover i {
+  color: var(--pink) !important;
+  transform: scale(1.1);
+}
+
+.icon-circle {
+  width: 100px;
+  height: 100px;
+  background-color: #f8f9fa;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin: 0 auto;
+  border-radius: 50%;
+  transition: background-color 0.3s;
+}
+
+.about-card:hover .icon-circle {
+  background-color: #fff0f2; /* Light pink background for icon */
+}
+.bg-mint {
+  background-color: var(--mint);
+  min-height: 100vh;
+}
+.bg-mint {
+  background-color: var(--mint);
+}
+
+.avatar-window {
+  width: 350px;
+  height: 350px;
+  background: white;
+  border: 10px solid white;
+  border-radius: 50%;
+  position: relative;
+  overflow: hidden;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.bunny-layer {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  object-fit: contain;
+  transition: opacity 0.3s ease;
+}
+
+/* Closet Grid */
+.closet-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 15px;
+  max-height: 300px;
+  overflow-y: auto;
+}
+
+.item-slot {
+  aspect-ratio: 1/1;
+  background: #f8f9fa;
+  border-radius: 20px;
+  border: 3px solid transparent;
+  cursor: pointer;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  transition: 0.2s;
+}
+
+.item-slot:hover {
+  border-color: var(--pink);
+  background: #fff0f2;
+}
+
+.item-slot img {
+  width: 80%;
+}
